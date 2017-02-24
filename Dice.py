@@ -226,14 +226,15 @@ def game_with_computer():
 			
 			
 	#остаток для проигравших
-        counter = 0
-        for player in range(len(whole_players)):
-            if player == lose_list[counter]:
-                award = int(whole_guess[player][4]/bets_sum*lose_sum)
-					
-                whole_players[player][1] += award
-                counter += 1
-            if counter == len(winners_list): break
+	if lose_list:
+		counter = 0
+		for player in range(len(whole_players)):
+		    if player == lose_list[counter]:
+			award = int(whole_guess[player][4]/bets_sum*lose_sum)
+
+			whole_players[player][1] += award
+			counter += 1
+		    if counter == len(winners_list): break
         
 
         #кик проигравших
